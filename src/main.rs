@@ -107,6 +107,7 @@ fn fetch(
                 let client = client.clone();
                 let bearer = bearer.clone();
                 let output = output.clone();
+                let m = m.clone();
 
                 rt.spawn(async move {
                     let name = format!("{id}.json");
@@ -149,12 +150,12 @@ fn fetch(
                             file.flush().await?;
 
                             pb.finish_and_clear();
-                            println!("[{url}] Done");
+                            let _ = m.println(format!("[{url}] Done"));
                             Ok::<_, anyhow::Error>(())
                         }
                         Err(e) => {
                             pb.finish_and_clear();
-                            eprintln!("[{name}] ERROR: {e}", name = name.display());
+                            let _ = m.println(format!("[{name}] ERROR: {e}", name = name.display()));
                             Err(anyhow!("download failed for: {url}"))
                         }
                     }

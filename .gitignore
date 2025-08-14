@@ -1,0 +1,10 @@
+/target
+*.json
+*.graphml
+*.gexf
+/.idea/
+*.dot
+*.pdf
+*.ps
+*.svg
+*.xml

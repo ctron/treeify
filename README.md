@@ -17,3 +17,17 @@ Right now, it can:
 * Fetch all referenced SBOMs and store them locally
 * Convert the graph into GEFX and GraphML for using it with other visualization tools
 * Convert the graph into a GraphViz DOT file
+
+## How to use it?
+
+Get some help:
+
+```bash
+cargo run -- --help
+```
+
+Fetch all SBOMs:
+
+```bash
+cargo run -- fetch response-file.json --bearer <bearer-token> --url https://trustify-server/
+```
